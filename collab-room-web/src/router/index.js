@@ -91,11 +91,11 @@ const router = createRouter({
                 //         }
                 //     ]
                 // },
-                {
-                    path: '/uikit/message',
-                    name: 'message',
-                    component: () => import('@/views/uikit/Messages.vue')
-                },
+                // {
+                //     path: '/uikit/message',
+                //     name: 'message',
+                //     component: () => import('@/views/uikit/Messages.vue')
+                // },
                 // {
                 //     path: '/uikit/file',
                 //     name: 'file',
