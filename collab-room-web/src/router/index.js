@@ -96,21 +96,21 @@ const router = createRouter({
                     name: 'message',
                     component: () => import('@/views/uikit/Messages.vue')
                 },
-                {
-                    path: '/uikit/file',
-                    name: 'file',
-                    component: () => import('@/views/uikit/File.vue')
-                },
-                {
-                    path: '/uikit/charts',
-                    name: 'charts',
-                    component: () => import('@/views/uikit/Chart.vue')
-                },
-                {
-                    path: '/uikit/misc',
-                    name: 'misc',
-                    component: () => import('@/views/uikit/Misc.vue')
-                },
+                // {
+                //     path: '/uikit/file',
+                //     name: 'file',
+                //     component: () => import('@/views/uikit/File.vue')
+                // },
+                // {
+                //     path: '/uikit/charts',
+                //     name: 'charts',
+                //     component: () => import('@/views/uikit/Chart.vue')
+                // },
+                // {
+                //     path: '/uikit/misc',
+                //     name: 'misc',
+                //     component: () => import('@/views/uikit/Misc.vue')
+                // },
                 {
                     path: '/blocks',
                     name: 'blocks',
