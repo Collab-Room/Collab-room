@@ -104,7 +104,6 @@ const calculateCustomerTotal = (name) => {
                     :rows="10"
                     dataKey="id"
                     :rowHover="true"
-                    v-model:filters="filters1"
                     filterDisplay="menu"
                     :loading="loading1"
                     :filters="filters1"
@@ -132,7 +131,7 @@ const calculateCustomerTotal = (name) => {
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
                         <template #body="{ data }">
-                            <img src="/demo/images/flag/flag_placeholder.png" :alt="data.country.name" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="" :alt="data.country.name" :class="'flag flag-' + data.country.code" width="30" />
                             <span style="margin-left: 0.5em; vertical-align: middle" class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -258,7 +257,7 @@ const calculateCustomerTotal = (name) => {
         <div class="col-12">
             <div class="card">
                 <h5>Row Expand</h5>
-                <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id" responsiveLayout="scroll">
+                <DataTable :value="products" dataKey="id" responsiveLayout="scroll">
                     <template #header>
                         <div>
                             <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2 mb-2" />
