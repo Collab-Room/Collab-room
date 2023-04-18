@@ -12,7 +12,7 @@ const block1 = ref(`<div class="grid grid-nogutter surface-section text-800">
         </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">
-        <img src="/demo/images/blocks/hero/hero-1.png" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+        <img src="" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
 </div>`);
 const block2 = ref(`<div class="surface-section px-4 py-8 md:px-6 lg:px-8 text-center">
@@ -406,7 +406,7 @@ const checked = ref(false);
                     </section>
                 </div>
                 <div class="col-12 md:col-6 overflow-hidden">
-                    <img src="/demo/images/blocks/hero/hero-1.png" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)" />
+                    <img src="" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)" />
                 </div>
             </div>
         </BlockViewer>
