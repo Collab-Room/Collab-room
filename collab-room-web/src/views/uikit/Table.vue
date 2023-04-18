@@ -227,7 +227,7 @@ const calculateCustomerTotal = (name) => {
                     <Column field="id" header="Id" :style="{ width: '100px' }" :frozen="idFrozen"></Column>
                     <Column field="country.name" header="Country" :style="{ width: '200px' }">
                         <template #body="{ data }">
-                            <img src="/demo/images/flag/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="" :class="'flag flag-' + data.country.code" width="30" />
                             <span style="margin-left: 0.5em; vertical-align: middle" class="image-text">{{ data.country.name }}</span>
                         </template>
                     </Column>
@@ -344,7 +344,7 @@ const calculateCustomerTotal = (name) => {
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
-                            <img src="/demo/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text ml-2">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
