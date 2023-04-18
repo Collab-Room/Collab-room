@@ -1,0 +1,28 @@
+.
+├── folder_structure.txt
+├── node_modules
+├── package.json
+├── package-lock.json
+└── src
+    ├── app.ts
+    ├── config
+    │   ├── db.ts
+    │   └── passport.ts
+    ├── controllers
+    │   ├── auth.ts
+    │   ├── groups.ts
+    │   ├── projects.ts
+    │   └── tasks.ts
+    ├── models
+    │   ├── Group.ts
+    │   ├── Projects.ts
+    │   ├── Task.ts
+    │   └── User.ts
+    ├── routes
+    │   ├── auth.ts
+    │   ├── groups.ts
+    │   ├── projects.ts
+    │   └── tasks.ts
+    └── server.ts
+
+368 directories, 2016 files
