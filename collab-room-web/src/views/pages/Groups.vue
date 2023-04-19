@@ -16,9 +16,9 @@ const dt = ref(null);
 const filters = ref({});
 const submitted = ref(false);
 const statuses = ref([
-    { label: 'INSTOCK', value: 'instock' },
-    { label: 'LOWSTOCK', value: 'lowstock' },
-    { label: 'OUTOFSTOCK', value: 'outofstock' }
+    { label: 'Completed', value: 'Completed' },
+    { label: 'In Progress', value: 'In Progress' },
+    { label: 'Overdue', value: 'Overdue' }
 ]);
 
 const productService = new ProductService();
@@ -29,9 +29,6 @@ onBeforeMount(() => {
 onMounted(() => {
     productService.getProducts().then((data) => (products.value = data));
 });
-const formatCurrency = (value) => {
-    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-};
 
 const openNew = () => {
     product.value = {};
@@ -102,10 +99,6 @@ const createId = () => {
     return id;
 };
 
-const exportCSV = () => {
-    dt.value.exportCSV();
-};
-
 const confirmDeleteSelected = () => {
     deleteProductsDialog.value = true;
 };
@@ -135,11 +128,6 @@ const initFilters = () => {
                             <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                         </div>
                     </template>
-
-                    <template v-slot:end>
-                        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
-                        <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)" />
-                    </template>
                 </Toolbar>
 
                 <DataTable
@@ -157,7 +145,7 @@ const initFilters = () => {
                 >
                     <template #header>
                         <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-                            <h5 class="m-0">Manage Products</h5>
+                            <h5 class="m-0">Manage Groups</h5>
                             <span class="block mt-2 md:mt-0 p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters['global'].value" placeholder="Search..." />
@@ -178,34 +166,15 @@ const initFilters = () => {
                             {{ slotProps.data.name }}
                         </template>
                     </Column>
-                    <Column header="Image" headerStyle="width:14%; min-width:10rem;">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Image</span>
-                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="shadow-2" width="100" />
-                        </template>
-                    </Column>
-                    <Column field="price" header="Price" :sortable="true" headerStyle="width:14%; min-width:8rem;">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Price</span>
-                            {{ formatCurrency(slotProps.data.price) }}
+                    <Column field="price" header="Member Count" :sortable="true" headerStyle="width:14%; min-width:8rem;">
+                        <template>
+                            <span class="p-column-title">Member Count</span>
                         </template>
                     </Column>
                     <Column field="category" header="Category" :sortable="true" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Category</span>
                             {{ slotProps.data.category }}
-                        </template>
-                    </Column>
-                    <Column field="rating" header="Reviews" :sortable="true" headerStyle="width:14%; min-width:10rem;">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Rating</span>
-                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
-                        </template>
-                    </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true" headerStyle="width:14%; min-width:10rem;">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Status</span>
-                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{ slotProps.data.inventoryStatus }}</span>
                         </template>
                     </Column>
                     <Column headerStyle="min-width:10rem;">
