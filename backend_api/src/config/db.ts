@@ -10,8 +10,8 @@ mongoose.Promise = global.Promise
 
 // Get current connected Database
 const db = mongoose.connection
-
 // Notify on error or success
+
 db.on('error', (err) => logger.error('connection with db error', err))
 db.on('close', () => logger.info('connection closed to db'))
 db.once('open', () =>

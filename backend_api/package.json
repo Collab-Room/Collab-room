@@ -4,6 +4,8 @@
   "description": "collab-room-backend",
   "main": "index.js",
   "scripts": {
+    "start:db": "node dist/src/config/db.js",
+    "dev:db": "nodemon src/config/db.ts",
     "start": "node dist/src/server.js",
     "dev": "nodemon src/server.ts",
     "build": "tsc -p ."

@@ -29,6 +29,7 @@ const createUser = async (req: Request, res: Response) => {
       password: hashedPassword,
       ID
     });
+    console.log(newUser)
 
     // Save the user to the database
     await newUser.save();

@@ -4,7 +4,7 @@ export interface IUser extends Document {
   fullName: string;
   email: string;
   password: string;
-  id: string;
+  ID: string;
 }
 
 enum roleType {
@@ -29,7 +29,7 @@ const UserSchema: Schema = new Schema(
             type: String,
             required: true,
         },
-        id: {
+        ID: {
             type: String,
             required: true,
             unique: true,

@@ -4,6 +4,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import compression from 'compression'
 import router from './common/routes'
+import db from './config/db'
 
 const app: Application = express()
 
@@ -17,6 +18,9 @@ app.use(
     limit: process.env.REQUEST_LIMIT || '100kb'
   })
 )
+
+// connect database
+db.Connection
 
 // Start server
 app.use(express.json())
