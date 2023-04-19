@@ -1,11 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-
-export interface IUser extends Document {
-  fullName: string;
-  email: string;
-  password: string;
-  ID: string;
-}
+import IUser from "./userInterface";
 
 enum roleType {
     TeamLeader = 'TeamLeader',

@@ -61,7 +61,7 @@ const loginUser = async (req: Request, res: Response) => {
     // Create a JWT token
     const token = jwt.sign(
       { email: existingUser.email, id: existingUser._id },
-      'mysecretkey',
+      'collab-room-secret',
       { expiresIn: '1h' }
     );
 
