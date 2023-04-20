@@ -97,7 +97,6 @@ const deleteProject = async (req: Request, res: Response) => {
   }
 };
 
-
 export default {
     createProject,
     getProjectById,

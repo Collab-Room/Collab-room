@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import Group from '../models/Group';
 import User from '../models/User';
+import Project from '../models/Projects';
 
 const createGroup = async (req: Request, res: Response) => {
   try {
@@ -45,7 +46,28 @@ const inviteMembers = async (req: Request, res: Response) => {
   res.json({ message: 'User invited to group' });
 }
 
+const getAllProjects = async (req: Request, res: Response) => {
+  try {
+    const { groupID } = req.body;
+    const group = await Group.findById(groupID).populate('projects').exec();
+
+      // Ensure that the user making the request is the team leader of the group
+    if (group?.createdBy.toString() !== req.body.User.id.toString()) {
+      res.status(403).json({ message: 'User not authorized' });
+      return;
+    }
+
+    console.log('group', group);
+    const groupProjects = group?.projects || [];
+    return res.json(groupProjects);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Server Error');
+  }
+};
+
 export default {
     createGroup,
-    inviteMembers
+    inviteMembers,
+    getAllProjects
 }

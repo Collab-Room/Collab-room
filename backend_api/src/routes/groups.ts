@@ -6,5 +6,7 @@ const router = express.Router();
 
 router.post('/create', authenticate, groupController.createGroup);
 router.post('/invite', authenticate, groupController.inviteMembers);
+router.get('/getallprojects', authenticate, groupController.getAllProjects);
+
 
 export default router;
