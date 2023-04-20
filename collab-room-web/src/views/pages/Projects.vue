@@ -173,11 +173,6 @@ const initFilters = () => {
                             {{ slotProps.data.name }}
                         </template>
                     </Column>
-                    <Column field="price" header="Type" :sortable="true" headerStyle="width:14%; min-width:8rem;">
-                        <template>
-                            <span class="p-column-title">Type</span>
-                        </template>
-                    </Column>
                     <Column field="category" header="Category" :sortable="true" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Category</span>
@@ -190,6 +185,18 @@ const initFilters = () => {
                             <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{ slotProps.data.inventoryStatus }}</span>
                         </template>
                     </Column>
+                    <Column field="inventoryStatus" header="Start Date" :sortable="true" headerStyle="width:14%; min-width:10rem;">
+                        <template #body="slotProps">
+                            <span class="p-column-title">Start Date</span>
+                            <span :class="'product-badge status-' + (slotProps.data.startDate ? slotProps.data.startDate.toLowerCase() : '')">{{ slotProps.data.startDate }}</span>
+                        </template>
+                    </Column>
+                    <Column field="inventoryStatus" header="End Date" :sortable="true" headerStyle="width:14%; min-width:10rem;">
+                        <template #body="slotProps">
+                            <span class="p-column-title">End Date</span>
+                            <span :class="'product-badge status-' + (slotProps.data.endDate ? slotProps.data.endDate.toLowerCase() : '')">{{ slotProps.data.endDate }}</span>
+                        </template>
+                    </Column>
                     <Column headerStyle="min-width:10rem;">
                         <template #body="slotProps">
                             <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editProduct(slotProps.data)" />
@@ -198,8 +205,7 @@ const initFilters = () => {
                     </Column>
                 </DataTable>
 
-                <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true" class="p-fluid">
-                    <img :src="'demo/images/product/' + product.image" :alt="product.image" v-if="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" />
+                <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Project Details" :modal="true" class="p-fluid">
                     <div class="field">
                         <label for="name">Name</label>
                         <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{ 'p-invalid': submitted && !product.name }" />
@@ -211,7 +217,7 @@ const initFilters = () => {
                     </div>
 
                     <div class="field">
-                        <label for="inventoryStatus" class="mb-3">Inventory Status</label>
+                        <label for="inventoryStatus" class="mb-3">Project Status</label>
                         <Dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
                             <template #value="slotProps">
                                 <div v-if="slotProps.value && slotProps.value.value">
@@ -232,32 +238,38 @@ const initFilters = () => {
                         <div class="formgrid grid">
                             <div class="field-radiobutton col-6">
                                 <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
-                                <label for="category1">Accessories</label>
+                                <label for="category1">Software</label>
                             </div>
                             <div class="field-radiobutton col-6">
                                 <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
-                                <label for="category2">Clothing</label>
+                                <label for="category2">Social</label>
                             </div>
                             <div class="field-radiobutton col-6">
                                 <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
-                                <label for="category3">Electronics</label>
+                                <label for="category3">Natural</label>
                             </div>
                             <div class="field-radiobutton col-6">
                                 <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
-                                <label for="category4">Fitness</label>
+                                <label for="category4">Other</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="formgrid grid">
                         <div class="field col">
-                            <label for="price">Price</label>
-                            <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" :class="{ 'p-invalid': submitted && !product.price }" :required="true" />
-                            <small class="p-invalid" v-if="submitted && !product.price">Price is required.</small>
+                            <label for="price">Start Date</label>
+                            <Calendar :showIcon="true" :showButtonBar="true" v-model="calendarValue"></Calendar>
                         </div>
                         <div class="field col">
-                            <label for="quantity">Quantity</label>
-                            <InputNumber id="quantity" v-model="product.quantity" integeronly />
+                            <label for="quantity">End Date</label>
+                            <Calendar :showIcon="true" :showButtonBar="true" v-model="calendarValue"></Calendar>
+                        </div>
+                    </div>
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <label for="price">Member Count</label>
+                            <InputNumber id="price" v-model="product.price" :class="{ 'p-invalid': submitted && !product.price }" :required="true" />
+                            <small class="p-invalid" v-if="submitted && !product.price">Price is required.</small>
                         </div>
                     </div>
                     <template #footer>

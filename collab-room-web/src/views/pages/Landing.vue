@@ -59,7 +59,11 @@ const smoothScroll = (id) => {
                     </a>
                 </div>
                 <div class="flex justify-content-center md:justify-content-end">
-                    <img src="https://ouch-cdn2.icons8.com/SH0zI_pydvMxmsczbYUBsS9qF73wIGtqRu9eiLQm4Xw/rs:fit:256:309/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTUz/LzZmNDJjZjUzLTdk/MTAtNDkzZi04NWIz/LTkyMDVhODE5Yzgy/NC5wbmc.png" alt="Hero Image" class="w-9 md:w-auto" />
+                    <img
+                        src="https://ouch-cdn2.icons8.com/SH0zI_pydvMxmsczbYUBsS9qF73wIGtqRu9eiLQm4Xw/rs:fit:256:309/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTUz/LzZmNDJjZjUzLTdk/MTAtNDkzZi04NWIz/LTkyMDVhODE5Yzgy/NC5wbmc.png"
+                        alt="Hero Image"
+                        class="w-9 md:w-auto"
+                    />
                 </div>
             </div>
 
@@ -171,7 +175,8 @@ const smoothScroll = (id) => {
                         </div>
                         <h2 class="line-height-1 text-900 text-4xl font-normal">Suitable for any work scenario</h2>
                         <span class="text-700 text-2xl line-height-3 ml-0 md:ml-2" style="max-width: 650px"
-                            >Easily collaborate with your class teammates using our app. The app enables you to create groups of your own, create projects, and delegate tasks with in those projects with your teammates.</span>
+                            >Easily collaborate with your class teammates using our app. The app enables you to create groups of your own, create projects, and delegate tasks with in those projects with your teammates.</span
+                        >
                     </div>
                 </div>
 

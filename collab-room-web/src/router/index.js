@@ -27,6 +27,11 @@ const router = createRouter({
                     path: '/pages/tasks',
                     name: 'tasks',
                     component: () => import('@/views/pages/Tasks.vue')
+                },
+                {
+                    path: '/pages/notifications',
+                    name: 'notifications',
+                    component: () => import('@/views/pages/Notifications.vue')
                 }
             ]
         },

@@ -11,7 +11,7 @@ const model = ref([
             { label: 'Groups', icon: 'pi pi-fw pi-users', to: '/pages/groups' },
             { label: 'Projects', icon: 'pi pi-fw pi-book', to: '/pages/projects' },
             { label: 'Tasks', icon: 'pi pi-fw pi-hourglass', to: '/pages/tasks' },
-            { label: 'Notifications', icon: 'pi pi-fw pi-megaphone', to: '/pages/crud' }
+            { label: 'Notifications', icon: 'pi pi-fw pi-megaphone', to: '/pages/notifications' }
         ]
     }
 ]);
